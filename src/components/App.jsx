@@ -1,8 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Todo from "./Todo/Todo";
-import "./App.css";
 import Fetch from "./Fetch/Fetch";
+import TodoReducer from "./TodoReducer/Todo";
+
+import "./App.css";
 
 const Header = () => {
   return (
@@ -15,6 +17,9 @@ const Header = () => {
           </li>
           <li>
             <Link to="/fetch">Fetch example</Link>
+          </li>
+          <li>
+            <Link to="/todoreducer">Todo with reducer</Link>
           </li>
         </ul>
       </nav>
@@ -38,6 +43,7 @@ export default () => {
             <Route path="/" exact component={Home} />
             <Route path="/todos" exact component={Todo} />
             <Route path="/fetch" exact component={Fetch} />
+            <Route path="/todoreducer" exact component={TodoReducer} />
           </Switch>
         </main>
       </div>
