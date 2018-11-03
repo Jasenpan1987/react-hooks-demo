@@ -1,24 +1,27 @@
 import React, { useReducer } from "react";
+import { produce } from "immer";
 import Form from "./Form";
 
 const todoReducer = (todos, action) => {
   switch (action.type) {
     case "ADD_TODO": {
-      return [...todos, { text: action.text, complete: false }];
+      return produce(todos, draftState => {
+        draftState.push({ text: action.text, complete: false });
+      });
     }
 
     case "TOGGLE_COMPLETE": {
       const { index } = action;
-      const targetTodo = todos[index];
-      return [
-        ...todos.slice(0, index),
-        { ...targetTodo, complete: !targetTodo.complete },
-        ...todos.slice(index + 1, todos.length)
-      ];
+
+      return produce(todos, draftState => {
+        draftState[index].complete = !draftState[index].complete;
+      });
     }
 
     case "RESET_ALL_TODOS": {
-      return todos.map(todo => ({ ...todo, complete: false }));
+      return produce(todos, draftState => {
+        draftState.forEach(todo => (todo.complete = false));
+      });
     }
 
     case "CLEAR_ALL_TODOS": {
@@ -48,10 +51,6 @@ export default () => {
   const clearAllTodos = () => {
     return dispatch({ type: "CLEAR_ALL_TODOS" });
   };
-
-  // const onSubmit = text => {
-  //   return dispatch({ type: "ADD_TODO", text})
-  // }
 
   return (
     <div className="App">
