@@ -2,16 +2,19 @@ import React, { useContext } from "react";
 import { ChangeValueContext } from "./context";
 
 export default function Panel() {
-  const { value, setValue } = useContext(ChangeValueContext);
+  const { person, growup, tiaocao } = useContext(ChangeValueContext);
   return (
     <div>
-      <h3>value: {value}</h3>
+      <h3>Name: {person.name}</h3>
+      <h3>Age: {person.age}</h3>
+      <h3>Company: {person.company}</h3>
+      <button onClick={growup}>长一岁</button>
       <button
         onClick={() => {
-          setValue("hello world");
+          tiaocao("Google");
         }}
       >
-        Set value
+        跳槽
       </button>
     </div>
   );
