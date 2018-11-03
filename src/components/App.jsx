@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Todo from "./Todo/Todo";
 import Fetch from "./Fetch/Fetch";
 import TodoReducer from "./TodoReducer/Todo";
+import TodoContext from "./TodoContext/Todo";
 
 import "./App.css";
 
@@ -20,6 +21,9 @@ const Header = () => {
           </li>
           <li>
             <Link to="/todoreducer">Todo with reducer</Link>
+          </li>
+          <li>
+            <Link to="/todocontext">Todo with context</Link>
           </li>
         </ul>
       </nav>
@@ -44,6 +48,7 @@ export default () => {
             <Route path="/todos" exact component={Todo} />
             <Route path="/fetch" exact component={Fetch} />
             <Route path="/todoreducer" exact component={TodoReducer} />
+            <Route path="/todocontext" exact component={TodoContext} />
           </Switch>
         </main>
       </div>
