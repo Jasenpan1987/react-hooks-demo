@@ -4,6 +4,7 @@ import Todo from "./Todo/Todo";
 import Fetch from "./Fetch/Fetch";
 import TodoReducer from "./TodoReducer/Todo";
 import TodoContext from "./TodoContext/Todo";
+import ChangeValue from "./ContextAndState";
 
 import "./App.css";
 
@@ -24,6 +25,9 @@ const Header = () => {
           </li>
           <li>
             <Link to="/todocontext">Todo with context</Link>
+          </li>
+          <li>
+            <Link to="/changevalue">Change Value</Link>
           </li>
         </ul>
       </nav>
@@ -49,6 +53,7 @@ export default () => {
             <Route path="/fetch" exact component={Fetch} />
             <Route path="/todoreducer" exact component={TodoReducer} />
             <Route path="/todocontext" exact component={TodoContext} />
+            <Route path="/changevalue" exact component={ChangeValue} />
           </Switch>
         </main>
       </div>
