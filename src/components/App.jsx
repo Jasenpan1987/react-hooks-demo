@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Todo from "./Todo/Todo";
 import "./App.css";
+import Fetch from "./Fetch/Fetch";
 
 const Header = () => {
   return (
@@ -11,6 +12,9 @@ const Header = () => {
         <ul>
           <li>
             <Link to="/todos">Todo example</Link>
+          </li>
+          <li>
+            <Link to="/fetch">Fetch example</Link>
           </li>
         </ul>
       </nav>
@@ -33,6 +37,7 @@ export default () => {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/todos" exact component={Todo} />
+            <Route path="/fetch" exact component={Fetch} />
           </Switch>
         </main>
       </div>
